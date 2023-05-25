@@ -1,0 +1,45 @@
+
+{{title}}
+
+{{2 + 4}}
+
+<p [style.color]="culoare">
+  {{descriere}}
+</p>
+<img src="{{imgSrc}}" alt="" style="max-width:300px;">
+<img *ngIf="afiseaza" [src]="imgSrc" alt="" style="max-width:300px;">
+
+
+<button (click)="showImg()">Afiseaza/Ascunde imaginea</button>
+<button (click)="showImg2()">Afiseaza/Ascunde </button>
+
+<button (click)="nr = nr + 1">Creste valoarea cu 1</button>
+<button (click)="nr = nr - 1">Scade valoarea cu 1</button>
+<p [ngClass]="nr>=7?'green':'myclass'">Valoarea lui nr este {{nr}}</p>
+
+<br>
+
+<form action="" method="post">
+
+  <input [(ngModel)]="valoare" type="text" name="nume" id="nume" (input)="inputCount()">
+
+  {{valoare}}
+</form>
+
+
+<h1>
+  {{persoana.nume}} {{persoana.prenume}}
+</h1>
+<p>
+  Eroii mei preferati sunt
+</p>
+<ul>
+<li *ngFor="let erou of eroi" >
+ 
+ <span *ngIf="erou.id"> - {{erou.id}} </span>
+ 
+</li>
+</ul>
+
+
+<router-outlet></router-outlet>
