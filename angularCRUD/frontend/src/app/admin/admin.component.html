@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>Adaugare/editare user</h1>
+    <form #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="nume">Nume</label>
+          <input [(ngModel)]="selectedUser.nume" #nume="ngModel" type="text" class="form-control" name="nume" id="nume" aria-describedby="numeHelp" placeholder="Nume">
+          <small *ngIf="nume.valid" id="numeHelp" required minlength="3" [class.is-invalid]="nume.invalid && (nume.dirty || nume.touched)" maxlength="250" class="form-text text-muted">Nume completat corect.</small>
+          <div *ngIf="nume.invalid && (nume.dirty || nume.touched)" class="invalid-feedback">
+          <div *ngIf="nume.errors?.['required']">
+            acest camp este obligatoriu
+          </div>
+          <div *ngIf="nume.errors?.['minlength']">
+            acest camp trebuie sa fie de minim 3 caractere
+          </div>
+          <div *ngIf="nume.errors?.['maxlength']">
+            acest camp trebuie sa contina maxim 250 de cartactere.
+          </div>
+          <div *ngIf="nume.errors?.['pattern']">
+            Acest camp trebuie sa contina doar caractere alfanumerice si -.
+          </div>
+        </div>
+    </div>
+        <div class="form-group">
+            <label for="prenume">Prenume</label>
+            <input type="text" class="form-control" name="prenume" id="prenume" aria-describedby="prenumeHelp" placeholder="Prenume">
+            <small id="prenumeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="datanastere">DataNastere</label>
+            <input type="data" class="form-control" name="datanastere" id="datanastere" aria-describedby="datanastereHelp" placeholder="datanastere">
+            <small id="datanastereHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+        <div class="form-group">
+          <label for="telefon">Telefon</label>
+          <input type="text" class="form-control" id="telefon" placeholder="telefon">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button [disabled]="!f.valid" (click)="createOrUpdateUser(f)" type="submit" class="btn btn-primary">Create or update User </button>
+      </form>
+</div>
