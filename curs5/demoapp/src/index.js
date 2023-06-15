@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blog";
+import Autor from './pages/Autor';
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 
@@ -22,6 +23,7 @@ root.render(
       <Route  path="/home" element={<Home />} />
       <Route path="blogs" element={<Blogs />} />
       <Route path="contact" element={<Contact />} />
+      <Route path="autor" element={<Autor />} />
       <Route path="*" element={<NoPage />} />
     </Route>
   </Routes>
